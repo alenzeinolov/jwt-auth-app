@@ -5,12 +5,13 @@ export const generateJWT = (userId) => {
     {
       userId,
     },
-    process.env.SECRET_KEY,
+    // process.env.SECRET_KEY,
+    "secretsuper",
     { expiresIn: "7d" }
   );
 };
 
 export const validateJWT = (token, userId) => {
-  const decodedToken = jwt.verify(token, process.env.SECRET_KEY);
+  const decodedToken = jwt.verify(token, "secretsuper");
   return decodedToken.userId === userId;
 };
